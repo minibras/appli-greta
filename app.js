@@ -11,21 +11,6 @@ var LocalStrategy = require('passport-local').Strategy;
 var hbs = require('hbs');
 var fs = require('fs');
 
-var index = require('./routes/index');
-var details = require('./routes/details');
-var admin = require('./routes/admin');
-var login = require('./routes/login');
-var detform = require('./routes/detform');
-var logout = require('./routes/logout');
-var addform = require('./routes/addform');
-var newForm = require('./routes/newForm');
-var deleteForm = require('./routes/deleteForm');
-var newuser = require('./routes/newuser');
-var users = require('./routes/users');
-var newUser = require('./routes/newUser');
-
-
-
 var app = express();
 
 mongoose.connect("mongodb://localhost/appliForm");
@@ -38,6 +23,9 @@ mongoose.connection.on("open", function(){
     console.log("connexion à la base de données OK");
 });
 
+/*chargement configuration JSON des actions --> controleurs */
+GLOBAL.dynRoutes = JSON.parse(fs.readFileSync("./routes/dynRoutes.json", 'utf8'));
+
 var schemadb_json = JSON.parse(fs.readFileSync("./db_schema.json", 'utf8'));
 
 //création des modèles mongoose
@@ -46,35 +34,7 @@ for (var schema in schemadb_json) {
     GLOBAL.schemas[schema] = mongoose.model(schema, schemadb_json[schema].schema, schemadb_json[schema].collection);
 };
 //console.log(GLOBAL.schemas);
-/*var formationSchema = new mongoose.Schema({
-    libelle: {type: String},
-    duree: {type: Number},
-    plan_cours: {type: String},
-    prix: {type: Number},
-    formateurs: {type: Array}
-});
 
-GLOBAL.Formation = mongoose.model('Formation', formationSchema, 'formation');
-
-var formateurSchema = new mongoose.Schema({
-    _id: {type: mongoose.Schema.ObjectId},
-    nom: {type: String},
-    prenom: {type: String},
-    statut: {type: String},
-    prix_jour: {type: Number}
-});
-
-GLOBAL.Formateur = mongoose.model('Formateur', formateurSchema, 'formateur');
-
-var usersSchema = new mongoose.Schema({
-    _id: {type: mongoose.Schema.ObjectId},
-    nom: {type: String},
-    prenom: {type: String},
-    login: {type: String},
-    password: {type: String}
-});
-
-GLOBAL.Users = mongoose.model('Users', usersSchema, 'users');*/
 
 hbs.registerPartials(__dirname + '/views/partials', function() {
     console.log('partials registered')
@@ -115,7 +75,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({ cookieName: 'sessiongreta', secret: 'AsipfGjdp*%dsDKNFNFKqoeID1345' }));
+app.use(session({ 
+    cookieName: 'sessiongreta', 
+    secret: 'AsipfGjdp*%dsDKNFNFKqoeID1345'
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -163,19 +126,9 @@ app.post('/authenticated', passport.authenticate('local'), function (req, re
     }
 });
 
-app.use('/', index);
-app.use('/login', login);
-app.use('/details', details);
-app.use('/admin', admin);
-app.use('/detform', detform);
-app.use('/logout', logout);
-app.use('/addform', addform);
-app.use('/newForm', newForm);
-app.use('/deleteForm', deleteForm);
-app.use('/newuser', newuser);
-app.use('/users', users);
-app.use('/newUser', newUser);
 
+// gestion dynamique des routes
+require('./dynRouter')(app);
 
 
 // catch 404 and forward to error handler

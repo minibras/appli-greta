@@ -1,0 +1,14 @@
+{
+    "GET/" : {"controler": "index"},
+    "GET/addform" : {"controler": "addform"},
+    "GET/admin" : {"controler": "admin"},
+    "GET/deleteForm" : {"controler": "deleteForm"},
+    "GET/details" : {"controler": "details"},
+    "GET/detform" : {"controler": "detform"},
+    "GET/login" : {"controler": "login"},
+    "GET/logout" : {"controler": "logout"},
+    "POST/newForm" : {"controler": "newForm"},
+    "POST/newUser" : {"controler": "newUser"},
+    "GET/newuser" : {"controler": "newuser"},
+    "GET/users" : {"controler" : "users"}
+}
