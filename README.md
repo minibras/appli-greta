@@ -1,2 +1,0 @@
-# appli-greta
-appli formation
