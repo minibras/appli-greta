@@ -3,24 +3,3 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
-}
-
-.barnav {
-    width: 100%;
-    border: 5px solid red;
-}
-#nav {
-    margin: 0;
-    padding: 0;
-}
-#nav li {
-    display: inline;
-    padding: 0;
-    margin: 0;
-}
-#nav a:link, #nav a:visited {
-    color:black;
-    background: #007f00;
-}

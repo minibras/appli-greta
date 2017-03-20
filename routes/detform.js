@@ -11,7 +11,7 @@ router.route('/:_id').get(function (req, res){
                 throw err;
             } 
             res.render('detform', {
-                title: 'informations',
+                title: 'Informations générales',
                 formation: result[0]
             });
     });
