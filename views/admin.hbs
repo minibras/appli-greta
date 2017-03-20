@@ -1,42 +1,44 @@
 <h1>{{title}}</h1>
 <br>
-<a href="/logout">Déconnexion</a>
 
-<button id="addform">Ajouter nouvelle formation</button>
-
-<button id="adduser">Ajouter nouvel admin</button>
-
-
-
-<select name="forms" id="formdel">
-    {{#compare formation null operator="isEmptyTab"}}
-        <option value="rien">Il n'y a pas de données dans la base formation</option>
-    {{else}}
-        <option value="0">selectionné une formation pour la supprimer</option>
-        {{#each formation}}
-            <option value="{{this._id}}">{{this.libelle}}</option>
-        {{/each}}
-    {{/compare}}
-</select>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <button id="addform">Ajouter nouvelle formation</button>
+        </div>
+        <div class="col-sm-6">
+            <button id="adduser">Ajouter nouvel admin</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <select name="forms" id="formdel">
+                {{#compare formation null operator="isEmptyTab"}}
+                <option value="rien">Il n'y a pas de données dans la base formation</option>
+                {{else}}
+                <option value="0">selectionné une formation pour la supprimer</option>
+                {{#each formation}}
+                <option value="{{this._id}}">{{this.libelle}}</option>
+                {{/each}} {{/compare}}
+            </select>
+        </div>
+    </div>
+</div>
 
 
 <script>
     var btn_new = document.getElementById('addform');
-    btn_new.addEventListener('click', function(evt){
+    btn_new.addEventListener('click', function (evt) {
         window.location = "/addform"
     });
-    
+
     var formdel = document.getElementById('formdel');
-    formdel.addEventListener('change', function(evt) {
-        window.location = "/deleteForm/"+formdel.value;
+    formdel.addEventListener('change', function (evt) {
+        window.location = "/deleteForm/" + formdel.value;
     });
-    
+
     var adduser = document.getElementById('adduser');
-    adduser.addEventListener('click', function(evt) {
+    adduser.addEventListener('click', function (evt) {
         window.location = "/newuser"
     });
 </script>
-
-
-
-

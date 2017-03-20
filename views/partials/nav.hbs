@@ -1,11 +1,3 @@
- <!--<nav class="barnav">
-   <ul id="nav">
-        <li><a href="/">Acceuil</a></li>
-        <li><a href="/login">Identification</a></li>
-        <li><a href="/details">Détails formations</a></li>
-    </ul>
-</nav>-->
-
  <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -28,11 +20,16 @@
       </ul>
     
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/login">Connexion</a></li>
-        <li><a href="/logout>">Déconnexion</a></li>
- 
+     {{#compare auth true operator="=="}}
+        <li><a href="/logout" div="logout">Déconnexion</a></li>
+      {{else}}
+        <li><a href="/login" div="login">Connexion</a></li> 
+     {{/compare}}
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
+<script>
+    
+</script>

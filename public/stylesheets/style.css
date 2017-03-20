@@ -1,5 +1,34 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-image: url(../images/background_body.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
+.logo {
+    background-image: url(../images/logo-greta-nord.png);
+    background-color: #ccc;
+    background-size: contain;
+    height: 128px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.banner {
+    background-color: #ccc; 
+    height: 128px;
+    background-image: url(../images/slide-form-formation-2.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.navbar {
+    position: static;
+}
+
+class {
+    padding: 20px;
+    margin: 20px;
+}
