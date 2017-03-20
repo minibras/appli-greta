@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
             throw err;
         }
         console.log(result);
-        res.render('details', {title: 'formation', formation: result});
+        res.render('details', {title: 'Informations', formation: result});
     });
 });
 
