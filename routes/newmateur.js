@@ -4,10 +4,10 @@ var mongoose = require('mongoose');
 
 router.get('/', function (req, res, next) {
     if ((req.session.passport) && (req.session.passport.user != null)) {
-        res.render('adduser', {
+        res.render('addmateur', {
             title: 'create a new',
             libelle: "creation",
-            form_action: "/newUser",
+            form_action: "/newMateur",
             auth: true
         });
     } else res.redirect('/login');

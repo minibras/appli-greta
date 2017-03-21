@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var ObjectId = mongoose.Types.ObjectId
+var ObjectId = mongoose.Types.ObjectId;
 
 router.route('/').post(function (req, res) {
     //console.log('req.originalUrl : ', req.originalUrl);
@@ -15,7 +15,7 @@ router.route('/').post(function (req, res) {
                 res.render('detform', {
                     title: 'creating formation without error datas below :',
                     formation: result[0],
-                    auth = true
+                    auth : true
                 });
             });
     } else res.redirect('/login');

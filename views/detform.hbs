@@ -5,5 +5,6 @@
     <li>duree: ............... {{formation.duree}} </li><br>
     <li>plan_cours: .......... {{formation.plan_cours}}</li><br>
     <li>prix: ................ {{formation.prix}}</li><br>
-    <li>formateurs: .......... {{formation.formateurs}}</li>
+    <li>formateurs: .......... {{#each formation.formateurs}} {{this.nom}} {{this.prenom}},
+    {{/each}}</li>
 </ul>

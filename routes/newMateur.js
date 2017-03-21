@@ -7,14 +7,14 @@ router.route('/').post(function (req, res) {
     //console.log('req.originalUrl : ', req.originalUrl);
     if ((req.session.passport) && (req.session.passport.user != null)) {
         if (!req.body.hasOwnProperty("_id")) req.body._id = new ObjectId();
-        GLOBAL.schemas["Users"].create([req.body],
+        GLOBAL.schemas["Formateur"].create([req.body],
             function (err, result) {
                 if (err) {
                     throw err;
                 }
-                res.render('user', {
-                    title: 'creating formation without error datas below :',
-                    user: result[0],
+                res.render('formateur', {
+                    title: 'add formateur without error datas below :',
+                    formateur: result[0],
                     auth: true
                 });
             });

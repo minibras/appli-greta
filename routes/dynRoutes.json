@@ -8,6 +8,8 @@
     "GET/login" : {"controler": "login"},
     "GET/logout" : {"controler": "logout"},
     "POST/newForm" : {"controler": "newForm"},
+    "POST/newMateur" : {"controler": "newMateur"},
+    "GET/newmateur" : {"controler": "newmateur"},
     "POST/newUser" : {"controler": "newUser"},
     "GET/newuser" : {"controler": "newuser"},
     "GET/users" : {"controler" : "users"}

@@ -8,6 +8,7 @@
         </div>
         <div class="col-sm-6">
             <button id="adduser">Ajouter nouvel admin</button>
+            <button id="addmateur">Ajouter nouveau formateur</button>
         </div>
     </div>
     <div class="row">
@@ -40,5 +41,9 @@
     var adduser = document.getElementById('adduser');
     adduser.addEventListener('click', function (evt) {
         window.location = "/newuser"
+    });
+    var addmateur = document.getElementById('addmateur');
+    addmateur.addEventListener('click', function (evt) {
+        window.location = "/newmateur"
     });
 </script>

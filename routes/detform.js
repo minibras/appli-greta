@@ -6,8 +6,8 @@ var ObjectId = mongoose.Types.ObjectId;
 router.route('/:_id').get(function (req, res) {
     if ((req.session.passport) && (req.session.passport.user != null)) {
         GLOBAL.schemas["Formation"].find({
-            _id: new ObjectId(req.params._id)
-        }).populate("formateurs", ['nom', 'prenom']).exec(
+            _id:req.params._id
+        }).populate("formateurs").exec(
             function (err, result) {
                 if (err) {
                     throw err;
@@ -20,8 +20,8 @@ router.route('/:_id').get(function (req, res) {
             });
     } else {
         GLOBAL.schemas["Formation"].find({
-            _id: new ObjectId(req.params._id)
-        }).populate("formateurs", ['nom', 'prenom']).exec(
+            _id:req.params._id
+        }).populate("formateurs").exec(
             function (err, result) {
                 if (err) {
                     throw err;

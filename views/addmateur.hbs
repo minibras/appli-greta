@@ -1,0 +1,20 @@
+<h1>Ajout utilisateur : </h1>
+
+<form method="POST" action="{{form_action}}" id="newMateur">
+    <input type="hidden" name="id" value="{{formateur._id}}" /><br>
+    nom : <input type="text" name="nom" value="{{formateur.nom}}" /><br>
+    prenom : <input type="text" name="prenom" value="{{formateur.prenom}}" /><br>
+    statut : <input type="text" name="statut" value="{{formateur.statut}}" /><br>
+    prix (par jours) : <input type="number" name="prix_jour" value="{{formateur.prix_jour}}" /><br>
+    <input type ="submit" value="confirme la création" />
+
+    
+</form>
+
+<script>
+    var mateur = document.getElementById('newMateur');
+    mateur.addEventListener('submit', function(evt) {
+        mateur.action += "/{{formateur._id}}"
+        mateur.submit();
+    });
+</script>
