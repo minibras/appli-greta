@@ -1,6 +1,14 @@
 # appli-greta
 appli formation
 
-détails sur les formations disponibles.
+produite à partir d'express
+sur serveur node js
 
-ajout de formations en admin.
+
+application capable d'afficher les données de formations préalablement ajoutées 
+à l'aide d'identifiant et de mot de passe :
+
+ajout de formateurs, formations et admins.
+modification de formations si erreur ou autre.
+
+
