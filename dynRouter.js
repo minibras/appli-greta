@@ -9,18 +9,17 @@ function dynRouter(app) {
 }
 
 function manageAction(req, res, next) {
-    var path;                              //le pathname (après le 3000 dans l'url)
-    var type;                              // la méthode (get post etc... methode http)
-    var controler;                         //nom du controleur à charger
+    var path; //le pathname (après le 3000 dans l'url)
+    var type; // la méthode (get post etc... methode http)
+    var controler; //nom du controleur à charger
     path = url.parse(req.url).pathname;
     //il faut supprimer pour le routage le paramètre apres l'action
-    if (path.split('/').length > 0) path = '/'+path.split('/')[1]
+    if (path.split('/').length > 0) path = '/' + path.split('/')[1]
     type = req.method;
     if (typeof GLOBAL.dynRoutes[type + path] == 'undefined') {
-        console.log("erreur pas d'action : "+path);
+        console.log("erreur pas d'action : " + path);
         next();
-    }
-    else {
+    } else {
         instanceModule = require('./routes/' + GLOBAL.dynRoutes[type + path].controler);
         router.use(path, instanceModule);
         next();

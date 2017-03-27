@@ -1,0 +1,25 @@
+<h1>{{title}}</h1>
+
+<form method="POST" action="{{form_action}}" id="formAdd">
+    <input type="hidden" name="id" value="{{user._id}}" />
+    <br> libelle :
+    <input type="text" name="libelle" value="{{formation.libelle}}" />
+    <br> duree :
+    <input type="number" name="duree" value="{{formation.duree}}" />
+    <br> plan cours :
+    <input type="text" name="plan_cours" value="{{formation.plan_cours}}" />
+    <br> prix :
+    <input type="number" name="prix" value="{{formation.prix}}" />
+    <br> {{#each formateurs}}
+    <input type="checkbox" name="formateurs" value="{{this._id}}" />{{this.nom}}-{{this.prenom}}
+    <br> {{/each}}
+    <input type="submit" value="confirme la {{libelle}}" />
+</form>
+
+<script>
+    var form = document.getElementById('formAdd');
+    form.addEventListener('submit', function (evt) {
+        form.action += "/{{formation._id}}"
+        form.submit();
+    });
+</script>

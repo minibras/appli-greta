@@ -18,7 +18,7 @@ router.route('/').post(function (req, res) {
                     auth : true
                 });
             });
-    } else res.redirect('/login');
+    } else { res.redirect('/login'); }
 });
 
 module.exports = router;

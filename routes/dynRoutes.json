@@ -7,6 +7,8 @@
     "GET/detform" : {"controler": "detform"},
     "GET/login" : {"controler": "login"},
     "GET/logout" : {"controler": "logout"},
+    "GET/modifyForm" : {"controler": "modifyForm"},
+    "POST/modifyform" : {"controler": "modifyform"},
     "POST/newForm" : {"controler": "newForm"},
     "POST/newMateur" : {"controler": "newMateur"},
     "GET/newmateur" : {"controler": "newmateur"},

@@ -21,8 +21,8 @@
     
       <ul class="nav navbar-nav navbar-right">
      {{#compare auth true operator="=="}}
-        <li><a href="/logout" div="logout">Déconnexion</a></li>
         <li><a href="/admin" div="admin">Acceuil admin</a></li>
+        <li><a href="/logout" div="logout">Déconnexion</a></li>
       {{else}}
         <li><a href="/login" div="login">Connexion</a></li> 
      {{/compare}}
