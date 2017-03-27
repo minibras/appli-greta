@@ -7,7 +7,7 @@ body {
 }
 
 .logo {
-    background-image: url(../images/logo-greta-nord.png);
+    background-image: url(../images/logo-greta-sud.png);
     background-color: #ccc;
     background-size: contain;
     height: 128px;
@@ -35,4 +35,12 @@ class {
 
 #acceuil {
     background-color: #ccc;
+}
+
+footer {
+    background-color: black;
+    text-align: center;
+    color: white;
+    position: fixed;
+    bottom: 0;
 }

@@ -15,10 +15,12 @@ router.route('/').post(function (req, res) {
                 res.render('detform', {
                     title: 'creating formation without error datas below :',
                     formation: result[0],
-                    auth : true
+                    auth: true
                 });
             });
-    } else { res.redirect('/login'); }
+    } else {
+        res.redirect('/login');
+    }
 });
 
 module.exports = router;

@@ -10,7 +10,7 @@ router.get('/', function (req, res, next) {
             form_action: "/newUser",
             auth: true
         });
-    } else res.redirect('/login');
-});
+    } else { res.redirect('/login');
+}});
 
 module.exports = router;

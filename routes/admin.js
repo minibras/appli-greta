@@ -5,7 +5,6 @@ var router = express.Router();
 router.get('/', function (req, res, next) {
     if ((req.session.passport) && (req.session.passport.user != null)) {
         GLOBAL.schemas["Formation"].find({}, function (err, result) {
-            //GLOBAL.Formation.find(function(err,result){
             if (err) {
                 throw err;
             }
