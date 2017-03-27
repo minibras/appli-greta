@@ -28,6 +28,15 @@
         <div class="col-sm-4">
             <h2>Formateurs</h2>
             <button id="addmateur">Ajouter nouveau formateur</button>
+             <select name="mateurs" id="delmateur">
+                {{#compare formateurs null operator="isEmptyTab"}}
+                <option value="rien">Il n'y a pas de données dans la base formation</option>
+                {{else}}
+                <option value="0">selectionné une formation pour la supprimer</option>
+                {{#each formateurs}}
+                <option value="{{this._id}}">{{this.nom}} {{this.prenom}}</option>
+                {{/each}} {{/compare}}
+            </select>
         </div>
         <div class="col-sm-4">
             <h2>Administrateurs</h2>
@@ -50,6 +59,11 @@
     var formdel = document.getElementById('formdel');
     formdel.addEventListener('change', function(evt) {
         window.location = "/deleteForm/" + formdel.value;
+    }); 
+    
+    var delmateur = document.getElementById('delmateur');
+    delmateur.addEventListener('change', function(evt) {
+        window.location = "/deleteMateur/" + delmateur.value;
     });
 
     var adduser = document.getElementById('adduser');

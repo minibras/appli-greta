@@ -10,16 +10,18 @@
     <input type="text" name="plan_cours" value="{{formation.plan_cours}}" />
     <br> prix :
     <input type="number" name="prix" value="{{formation.prix}}" />
-    <br> {{#each formateurs}}
-    <input type="checkbox" name="formateurs" value="{{this._id}}" />{{this.nom}}-{{this.prenom}}
-    <br> {{/each}}
+    <br> 
+    {{#each formateurs}}
+        <input type="checkbox" name="formateurs" value="{{this._id}}" />{{this.nom}}-{{this.prenom}}<br>
+    {{/each}}
     <input type="submit" value="confirme la {{libelle}}" />
 </form>
 
 <script>
     var form = document.getElementById('formAdd');
-    form.addEventListener('submit', function (evt) {
+    form.addEventListener('submit', function(evt) {
         form.action += "/{{formation._id}}"
         form.submit();
     });
+
 </script>

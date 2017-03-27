@@ -8,11 +8,16 @@ router.get('/', function (req, res, next) {
             if (err) {
                 throw err;
             }
-            console.log(result);
-            res.render('admin', {
-                title: 'Adminisration',
-                formation: result,
-                auth: true
+            GLOBAL.schemas["Formateur"].find({}, function (err, listformateur) {
+                if (err) {
+                    throw err;
+                }
+                res.render('admin', {
+                    title: 'Adminisration',
+                    formation: result,
+                    formateurs: listformateur,
+                    auth: true
+                });
             });
         });
     } else res.redirect('/login');

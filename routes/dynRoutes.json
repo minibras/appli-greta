@@ -3,6 +3,7 @@
     "GET/addform" : {"controler": "addform"},
     "GET/admin" : {"controler": "admin"},
     "GET/deleteForm" : {"controler": "deleteForm"},
+    "GET/deleteMateur" : {"controler": "deleteMateur"},
     "GET/details" : {"controler": "details"},
     "GET/detform" : {"controler": "detform"},
     "GET/login" : {"controler": "login"},
