@@ -5,7 +5,7 @@ var ObjectId = mongoose.Types.ObjectId;
 
 /*set formation from _id with new data for an update into mongodb*/
 router.route('/:_id').post(function (req, res) {
-    //console.log('req.originalUrl : ', req.originalUrl);
+    if ((req.session.passport) && (req.session.passport.user != null)) {
     GLOBAL.schemas["Formation"].update({
             _id: req.params._id
         }, {
@@ -25,9 +25,13 @@ router.route('/:_id').post(function (req, res) {
                 //console.log('user: ', result);
                 res.render('detform', {
                     title: 'formation modifier sans erreur',
-                    formation: result[0]
+                    formation: result[0],
+                    auth: true
                 });
             });
         });
+    } else {
+        res.redirect('/login');
+    }
 });
 module.exports = router;
